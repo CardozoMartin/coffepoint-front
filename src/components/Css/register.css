@@ -1,0 +1,126 @@
+:root {
+          --coffee-cream: #f5f1eb;
+          --coffee-light: #e8ddd4;
+          --coffee-medium: #c4a484;
+          --coffee-dark: #8b6f47;
+          --coffee-bean: #6b5b43;
+        }
+        
+        body {
+          background-color: var(--coffee-cream);
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .register-container {
+          min-height: 100vh;
+          background-color: var(--coffee-cream);
+          padding: 1rem;
+        }
+        
+        .register-card {
+          background: white;
+          border: 1px solid var(--coffee-light);
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 1.5rem;
+          width: 100%;
+          max-width: 380px;
+          margin: 0 auto;
+        }
+        
+        .coffee-logo {
+          color: var(--coffee-dark);
+          font-size: 2.5rem;
+          margin-right: 0.5rem;
+        }
+        
+        .brand-title {
+          color: var(--coffee-dark);
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 0;
+        }
+        
+        .subtitle {
+          color: var(--coffee-medium);
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+        }
+        
+        .form-label {
+          color: var(--coffee-dark);
+          font-weight: 500;
+        }
+        
+        .form-control {
+          border: 1px solid var(--coffee-light);
+          border-radius: 8px;
+          padding: 0.875rem;
+          transition: all 0.3s ease;
+          font-size: 1rem;
+          height: 48px;
+        }
+        
+        .form-control:focus {
+          border-color: var(--coffee-medium);
+          box-shadow: 0 0 0 0.2rem rgba(196, 164, 132, 0.25);
+        }
+        
+        .btn-coffee {
+          background-color: var(--coffee-dark);
+          color: var(--coffee-cream);
+          border: none;
+          border-radius: 8px;
+          padding: 0.875rem 1.5rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          width: 100%;
+          font-size: 1rem;
+          height: 48px;
+        }
+        
+        .btn-coffee:hover {
+          background-color: var(--coffee-bean);
+          color: var(--coffee-cream);
+        }
+        
+        .btn-coffee:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        
+        .password-toggle {
+          position: absolute;
+          right: 0.875rem;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: var(--coffee-medium);
+          cursor: pointer;
+          padding: 0.5rem;
+          font-size: 1.1rem;
+        }
+        
+        .password-toggle:hover {
+          color: var(--coffee-dark);
+        }
+        
+        .login-link {
+          color: var(--coffee-dark);
+          text-decoration: none;
+          font-weight: 500;
+        }
+        
+        .login-link:hover {
+          color: var(--coffee-bean);
+          text-decoration: underline;
+        }
+        
+        .text-coffee-medium {
+          color: var(--coffee-medium);
+        }
+        
+        .position-relative {
+          position: relative;
+        }
