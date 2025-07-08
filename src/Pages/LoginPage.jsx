@@ -1,79 +1,53 @@
 import React, { useState } from 'react';
-import '../Css/register.css'; // Importar estilos CSS
+import '../components/Css/login.css'; // Importar estilos CSS
 import { Coffee } from 'lucide-react';
-
-const RegisterPage = ({ onSwitchToLogin }) => {
-  const [name, setName] = useState('');
+import { Link } from 'react-router-dom';
+const LoginPage = ({ onSwitchToRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!name || !email || !password || !confirmPassword) {
+    if (!email || !password) {
       alert('Por favor completa todos los campos');
       return;
     }
-
-    if (password !== confirmPassword) {
-      alert('Las contraseñas no coinciden');
-      return;
-    }
-
-    if (password.length < 6) {
-      alert('La contraseña debe tener al menos 6 caracteres');
-      return;
-    }
-
+    
     setIsLoading(true);
     // Simular llamada a API
     setTimeout(() => {
       setIsLoading(false);
-      alert('¡Cuenta creada exitosamente!');
+      alert('¡Bienvenido a CoffeePoint!');
     }, 1000);
   };
 
   return (
     <>
-
+      {/* Bootstrap CSS */}
       
       
+     
 
-      <div className="register-container d-flex align-items-center justify-content-center">
+      <div className="login-container d-flex align-items-center justify-content-center">
         <div className="w-100">
-          <div className="register-card">
+          <div className="login-card">
             {/* Logo y título */}
             <div className="text-center mb-4">
               <div className="d-flex align-items-center justify-content-center mb-3">
                 <i className="bi bi-cup-hot coffee-logo"></i>
                 <div className='d-flex align-items-center '>
                     <Coffee className='icon-coffe'></Coffee>
-                <h1 className="brand-title ms-2">COFFEEPOINT</h1>
-                </div>
+                    <h1 className="brand-title ms-2">COFFEEPOINT</h1>
+                    </div>
               </div>
-              <p className="subtitle mb-0">Únete a nuestra comunidad cafetera</p>
+              <p className="subtitle mb-0">Inicia sesión para continuar</p>
             </div>
 
             {/* Formulario */}
             <div onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Nombre completo
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="form-control"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Tu nombre"
-                  disabled={isLoading}
-                />
-              </div>
-
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Correo electrónico
@@ -89,7 +63,7 @@ const RegisterPage = ({ onSwitchToLogin }) => {
                 />
               </div>
 
-              <div className="mb-3">
+              <div className="mb-4">
                 <label htmlFor="password" className="form-label">
                   Contraseña
                 </label>
@@ -102,7 +76,7 @@ const RegisterPage = ({ onSwitchToLogin }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     disabled={isLoading}
-                    style={{ paddingRight: '3rem' }}
+                    style={{ paddingRight: '2.5rem' }}
                   />
                   <button
                     type="button"
@@ -114,21 +88,6 @@ const RegisterPage = ({ onSwitchToLogin }) => {
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label htmlFor="confirmPassword" className="form-label">
-                  Confirmar contraseña
-                </label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  className="form-control"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="••••••••"
-                  disabled={isLoading}
-                />
-              </div>
-
               <button
                 type="submit"
                 className="btn btn-coffee"
@@ -138,25 +97,25 @@ const RegisterPage = ({ onSwitchToLogin }) => {
                 {isLoading ? (
                   <>
                     <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                    Creando cuenta...
+                    Iniciando sesión...
                   </>
                 ) : (
-                  'Crear Cuenta'
+                  'Iniciar Sesión'
                 )}
               </button>
             </div>
 
-            {/* Switch to login */}
+            {/* Switch to register */}
             <div className="text-center mt-4">
               <p className="text-coffee-medium mb-0">
-                ¿Ya tienes cuenta?{' '}
-                <button
+                ¿No tienes cuenta?{' '}
+                <Link to={'/register'}
                   type="button"
-                  className="btn btn-link p-0 login-link"
-                  onClick={onSwitchToLogin}
+                  className="btn btn-link p-0 register-link"
+                  onClick={onSwitchToRegister}
                 >
-                  Inicia sesión aquí
-                </button>
+                  Regístrate aquí
+                </Link>
               </p>
             </div>
           </div>
@@ -166,4 +125,4 @@ const RegisterPage = ({ onSwitchToLogin }) => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

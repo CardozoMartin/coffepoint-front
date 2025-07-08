@@ -1,7 +1,10 @@
 import React from 'react'
-import LoginPage from './components/Pages/LoginPage'
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import RegisterPage from './components/Pages/RegisterPage'
+import RegisterPage from './Pages/RegisterPage'
+import LoginPage from './Pages/LoginPage'
+import { Toaster } from 'sonner'
+
 
 const AppRoutes = () => {
   return (
@@ -10,6 +13,8 @@ const AppRoutes = () => {
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
+
+      <Toaster richColors position='top-center' ></Toaster>
     </BrowserRouter>
   )
 }
